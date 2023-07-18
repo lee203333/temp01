@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'Noto Sans Korean';
+  font-style: normal;
+  font-weight: normal;
+  src: url(//script.ebay.co.kr/fonts/NotoSansKR-Regular-Hestia.eot), url(//script.ebay.co.kr/fonts/NotoSansKR-Regular-Hestia.eot?#iefix) format("embedded-opentype");
+  src: local("Noto Sans Regular"), local("NotoSans-Regular"), url(//script.ebay.co.kr/fonts/NotoSansKR-Regular-Hestia.woff) format("woff"), url(//script.ebay.co.kr/fonts/NotoSansKR-Regular-Hestia.otf) format("opentype");
+}
