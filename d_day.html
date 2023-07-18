@@ -1,0 +1,26 @@
+{@
+	$now = date("Y-m-d");
+	$date = $document->getExtraEidValueHTML($mi->end_name);
+	$this_day = date_create($document->getExtraEidValueHTML($mi->end_name));
+	$date1 = date("Y-m-d",strtotime($this_day->format("Y-m-d").($mi->i_d)));
+	$datetime = new DateTime($now);
+	$date2 = $datetime->modify($mi->a_d);
+
+	$w_d_day_text = str_replace('.', '-', $date);// D-day 날짜 설정
+	$w_d_day = strtotime($w_d_day_text);
+	$w_today = time();// 오늘 날짜 설정
+	$w_diff = $w_d_day - $w_today;// D-day와 오늘 날짜 차이 계산
+	$w_days = floor($w_diff / (60 * 60 * 24))+1;// 초를 일 수로 변환
+}
+
+<!--@if(!$date)-->
+<!--@elseif($now > $date)-->
+	<span style="color:#a6a6a6; text-decoration:line-through !important;"><span class="sbtn_mini sbtn-dark" style="margin-right:5px">{$mi->end_title}</span>
+<!--@elseif($now == $date)-->
+	<span style="color:red"><span class="sbtn_mini sbtn-red" style="margin-right:5px">{$mi->today_title} <span cond="$mi->d_day">[{$mi->d_day_title} - 0]</span></span>
+<!--@elseif($now < $date1)-->
+	<span><span class="sbtn_mini sbtn-yellow" style="margin-right:5px">{$mi->ing_title} <span cond="$mi->d_day">[{$mi->d_day_title} - {$w_days}]</span></span>
+<!--@elseif($date2)-->
+	<span><span class="sbtn_mini sbtn-blue" style="margin-right:5px">{$mi->approach_title} <span cond="$mi->d_day">[{$mi->d_day_title} - {$w_days}]</span></span>
+<!--@end-->
+
